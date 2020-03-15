@@ -24,11 +24,31 @@ table{
   font-family: Sen;
   color: white;
   font-size: 20px;
-  width: 50%;
 }
+
+input[type=submit]{
+  background-color:#0283A0;
+  border: 3px solid black;
+  font-family: Sen;
+  color: white;
+  padding: 10px 20px;
+  margin: 8px 0px;
+  cursor: pointer; 
+  box-sizing: border-box;
+}
+
 input[type=text]{
-  width: 100%;
   padding: 12px 20px;
+  width: 200px;
   margin: 8px 0;
   box-sizing: border-box;
+  border: 3px solid #0283A0;
+  border-radius: 4px;
+  font-family: Sen;
+  transition: width 0.5s ease-in-out;
+  font-size: 18px;
+}
+
+input[type=text]:focus {
+  width: 500px;
 }

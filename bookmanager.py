@@ -1,7 +1,7 @@
 #https://www.codementor.io/@garethdwyer/building-a-crud-application-with-flask-and-sqlalchemy-dm3wv7yu2
 
 import os
-#lol
+
 from flask import render_template
 from flask import Flask
 from flask import request

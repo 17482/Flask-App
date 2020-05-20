@@ -17,7 +17,6 @@ db = SQLAlchemy(app)
 
 class Book(db.Model):
     title = db.Column(db.String(80), unique=True, nullable=False, primary_key=True)
-    author = db.Column(db.String(80), unique=False, nullable=False, primary_key=False) 
 
     def __repr__(self):
         return "<Title: {}>".format(self.title)
@@ -27,7 +26,7 @@ def home():
     books = None
     if request.form:
         try:
-            book = Book(title=request.form.get("title"), author=request.form.get("author"))
+            book = Book(title=request.form.get("title"))
             db.session.add(book)
             db.session.commit()
         except Exception as e:
@@ -46,19 +45,6 @@ def update():
         db.session.commit()
     except Exception as e:
         print("Couldn't update book title")
-        print(e)
-    return redirect("/")
-
-@app.route("/updateauthor", methods=["POST"])
-def updateauthor():
-    try:
-        newauthor = request.form.get("newauthor")
-        oldauthor = request.form.get("oldauthor")
-        book = Book.query.filter_by(author=oldauthor).first()
-        book.author = newauthor
-        db.session.commit()
-    except Exception as e:
-        print("Couldn't update author")
         print(e)
     return redirect("/")
 
